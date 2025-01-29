@@ -1,0 +1,65 @@
+Overview
+This is a simple Java console application that:
+
+Accepts two arguments from the command line:
+The chess piece type (Pawn, King, or Queen).
+The current position of that piece on an 8x8 chessboard (e.g. G1, D5, etc.).
+Prints out all the valid moves that piece can make from the specified position.
+The application assumes an empty chessboard.
+
+Chess Pieces Implemented
+Pawn (moves 1 step forward along the board, i.e., row + 1)
+King (moves 1 step in any of the 8 directions)
+Queen (moves in any of the 8 directions across the board)
+Examples
+Pawn, G1
+Command: java com.example.chess.ChessApp Pawn G1
+Output: G2
+
+King, D5
+Command: java com.example.chess.ChessApp King D5
+Output: C4, C5, C6, D4, D6, E4, E5, E6
+
+Queen, E4
+Command: java com.example.chess.ChessApp Queen E4
+Output: (all valid squares horizontally, vertically, and diagonally from E4).
+
+Requirements
+Java 8 (or higher)
+JUnit 4 (for running tests)
+Build & Run Instructions
+Clone/Download this repository.
+
+Compile the source:
+
+cd path/to/src   # or wherever your Java files reside
+
+# Example: using javac
+
+javac com/example/chess/*.java
+
+java com.example.chess.ChessApp Pawn G1
+java com.example.chess.ChessApp King D5
+java com.example.chess.ChessApp Queen E4
+
+Run Tests (JUnit 4):
+
+If you use a build tool like Maven or Gradle, set up JUnit in your pom.xml or build.gradle.
+Alternatively, from the command line, you can run tests with a test runner, or from an IDE that supports JUnit.
+For example, if using Maven, place the code in a standard Maven structure, add JUnit as a dependency, and run:
+
+Notes and Assumptions
+Pawn Movement:
+
+Assumes a single-step move forward (from row n to n+1).
+No double moves, no captures (diagonal) are considered in this simplified scenario.
+“Forward” is always increasing row numbers.
+Empty Board:
+
+No blocking pieces, so the Queen can move until it hits the boundary of the board.
+Invalid Inputs:
+
+If the piece type is unknown or the position is out of range, the application will print an error message or return an empty list of moves.
+Output Format:
+
+The positions are returned as a comma-separated list (with a space after the comma).
